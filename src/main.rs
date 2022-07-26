@@ -1,3 +1,9 @@
+use crate::input::get_file;
+
+mod input;
+mod image;
+mod video;
+
 fn main() {
-    println!("Hello, world!");
+    get_file();
 }
