@@ -1,9 +1,12 @@
-use crate::input::get_file;
-
 mod input;
-mod image;
 mod video;
+mod output;
 
-fn main() {
-    get_file();
+fn main() -> Result<(), String> {
+    let args = input::get_args().expect("Invalid args");
+    let file = args.0;
+    let letter = args.1;
+    let images = video::split_video(file).expect("could not split video");
+    output::modify_json(images, letter);
+    Ok(())
 }
