@@ -1,16 +1,4 @@
-use std::env;
-
-pub fn get_args() -> Result<(String, [u8; 26]), &'static str> {
-    let args: Vec<String> = env::args().collect();
-    if args.len() < 2 {
-        return Err("No filepath or letter provided.");
-    } else if args.len() < 3 {
-        return Err("Invalid parameters. Goes path then letter")
-    }
-    Ok((args[1].clone(), get_arr_from_letter(args[2].clone()).expect("Could not get arr")))
-}
-
-fn get_arr_from_letter(letter: String) -> Result<[u8; 26], &'static str>{
+pub fn get_arr_from_letter(letter: String) -> Result<[u8; 26], &'static str>{
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
     let cleaned_letter = letter.to_lowercase();
     if letter.is_empty() || !alphabet.contains(&cleaned_letter){
