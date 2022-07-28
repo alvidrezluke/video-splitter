@@ -13,7 +13,7 @@ pub fn get_args() -> Result<(String, [u8; 26]), &'static str> {
 fn get_arr_from_letter(letter: String) -> Result<[u8; 26], &'static str>{
     let alphabet = "abcdefghijklmnopqrstuvwxyz";
     let cleaned_letter = letter.to_lowercase();
-    if letter.len() < 1 || !alphabet.contains(&cleaned_letter){
+    if letter.is_empty() || !alphabet.contains(&cleaned_letter){
         return Err("Invalid letter");
     }
     let index = alphabet.find(&cleaned_letter).expect("Not in alphabet");
