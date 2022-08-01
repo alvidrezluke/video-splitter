@@ -1,3 +1,5 @@
+// Basic custom error handling
+
 use std::fmt::{Formatter, Debug};
 
 pub struct Error {
